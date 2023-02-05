@@ -3,3 +3,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-[#f7f7f7];
+  @apply flex flex-col items-center justify-center;
+  @apply min-h-screen;
+  @apply m-0;
+}

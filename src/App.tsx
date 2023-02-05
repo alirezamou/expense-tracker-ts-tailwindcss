@@ -4,9 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <div>
-      <Header title={"Expense Tracker"} />
-    </div>
+        <Header title={"Expense Tracker"} />
   );
 }
 
