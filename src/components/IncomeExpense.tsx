@@ -5,8 +5,8 @@ import { GlobalContext } from "../context/GlobalState";
 export default function IncomeExpense () {
     const { transactions } = useContext(GlobalContext);
     const amounts = transactions.map(trx => trx.amount);
-    const income = amounts.filter(amnt => amnt > 0).reduce((acc, cur) => acc += cur);
-    const expense = amounts.filter(amnt => amnt < 0).reduce((acc, cur) => acc += cur);
+    const income = amounts.filter(amnt => amnt > 0).reduce((acc, cur) => acc += cur, 0);
+    const expense = amounts.filter(amnt => amnt < 0).reduce((acc, cur) => acc += cur, 0);
     return (
         <div className="flex gap-4 bg-white shadow p-[20px] justify-between my-[20px] mx-0">
             <div className="flex-1 text-center border-r border-solid border-[#dedede]">
