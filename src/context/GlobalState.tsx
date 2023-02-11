@@ -9,6 +9,7 @@ export type Transaction = {
 
 export type State = {
     transactions: Transaction[];
+    deleteTransaction?: ( id : number) => void;
 }
 
 const initialState = {
@@ -28,8 +29,19 @@ export type GlobalProviderProps = {
 
 export default function GlobalProvider ({ children }: GlobalProviderProps) {
     const [state, dispatch] = useReducer(AppReducer, initialState);
+
+    function deleteTransaction (id : number) {
+        dispatch({
+            type: "DELETE_TRANSACTION",
+            payload: id
+        })
+    }
+
     return (
-        <GlobalContext.Provider value={{transactions: state.transactions}}>
+        <GlobalContext.Provider value={{
+            transactions: state.transactions,
+            deleteTransaction
+        }}>
             {children}
         </GlobalContext.Provider>
     );

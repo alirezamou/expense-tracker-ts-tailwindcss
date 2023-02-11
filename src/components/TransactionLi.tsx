@@ -1,8 +1,12 @@
+import { useContext } from "react";
+
+import { GlobalContext } from "../context/GlobalState";
 import type { Transaction } from "../context/GlobalState";
 
 export type TransactionLiProps = Transaction;
 
-export default function TransactionLi ( {text, amount}  : TransactionLiProps) {
+export default function TransactionLi ( {id, text, amount}  : TransactionLiProps) {
+    const { deleteTransaction } = useContext(GlobalContext);
     return (
         <li className={`relative bg-white my-2 flex justify-between p-2 shadow rounded-2 border-r-4 group
             ${amount > 0 ? "border-green-500" : "border-red-500"}`
@@ -16,6 +20,7 @@ export default function TransactionLi ( {text, amount}  : TransactionLiProps) {
                     -translate-y-1/2 opacity-0
                     transition-opacity delay-50 ease-in-out
                     group-hover:opacity-100`}
+                onClick={() => deleteTransaction?.(id)}
             >
                 x
             </button>
