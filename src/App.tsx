@@ -8,7 +8,7 @@ import TransactionList from './components/TransactionList';
 function App() {
   return (<>
         <Header title={"Expense Tracker"} />
-        <div className='my-[30px] mx-auto w-[350px]'>
+        <div className='my-[30px] mx-auto w-[350px] flex flex-col gap-2'>
           <Balance />
           <IncomeExpense />
           <TransactionList />
