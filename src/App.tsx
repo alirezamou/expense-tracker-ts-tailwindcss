@@ -6,8 +6,10 @@ import './App.css';
 import TransactionList from './components/TransactionList';
 import AddTransaction from './components/AddTransaction';
 
+import GlobalProvider from './context/GlobalState';
+
 function App() {
-  return (<>
+  return (<GlobalProvider>
         <Header title={"Expense Tracker"} />
         <div className='my-[30px] mx-auto w-[350px] flex flex-col gap-2'>
           <Balance />
@@ -15,7 +17,7 @@ function App() {
           <TransactionList />
           <AddTransaction />
         </div>
-  </>
+  </GlobalProvider>
   );
 }
 
