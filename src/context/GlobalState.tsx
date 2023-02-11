@@ -2,9 +2,9 @@ import React, { createContext, ReactNode, useReducer } from "react";
 import AppReducer from "./AppReducer";
 
 export type Transaction = {
-    id: Number;
+    id: number;
     text: String;
-    amount: Number;
+    amount: number;
 }
 
 export type State = {
