@@ -10,6 +10,7 @@ export type Transaction = {
 export type State = {
     transactions: Transaction[];
     deleteTransaction?: ( id : number) => void;
+    addTransaction?: (trx : Transaction) => void;
 }
 
 const initialState = {
@@ -37,10 +38,18 @@ export default function GlobalProvider ({ children }: GlobalProviderProps) {
         })
     }
 
+    function addTransaction (trx: Transaction) {
+        dispatch({
+            type: "ADD_TRANSACTION",
+            payload: trx
+        });
+    }
+
     return (
         <GlobalContext.Provider value={{
             transactions: state.transactions,
-            deleteTransaction
+            deleteTransaction,
+            addTransaction
         }}>
             {children}
         </GlobalContext.Provider>
